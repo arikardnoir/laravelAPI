@@ -32,6 +32,7 @@ class AuthApiController extends Controller
         return response()->json(compact('token'));
     }
 
+    /*
     public function refreshToken(Request $request){
         
         $token = $request->get('token'); 
@@ -49,10 +50,10 @@ class AuthApiController extends Controller
         
         return response()->json(compact('token'));
         
-    }
+    }*/
     
     
-/*    
+  
 public function refreshToken()
 {
     $token = JWTAuth::getToken();
@@ -68,6 +69,5 @@ public function refreshToken()
 
     return response()->json(compact('token'));
 }
-*/
     
 }
