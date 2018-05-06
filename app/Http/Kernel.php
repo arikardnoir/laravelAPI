@@ -19,6 +19,11 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+
+        /**
+         * CORS (Adds CORS Send CORS headers in a Laravel application)
+         */
+        \Spatie\Cors\Cors::class
     ];
 
     /**
@@ -39,6 +44,7 @@ class Kernel extends HttpKernel
             
             //Middleware Authentication API            
             'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+            
         ],
 
         'api' => [

@@ -148,6 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         
         
+        
         /**
          * 
          * Providers JWT Auth - API Authentication
@@ -163,10 +164,13 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+
+
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        
     ],
 
     /*

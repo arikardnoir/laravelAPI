@@ -7,7 +7,7 @@ $this->group(['prefix' => 'v1'],function(){
     
     $this->group(['middleware' => 'jwt.auth'],function(){
         
-        $this->post('products/search', 'Api\v1\ProductController@search');
+        $this->get('products/search', 'Api\v1\ProductController@search');
         $this->apiResource('products', 'Api\v1\ProductController', ['except' => ['create', 'edit']]);
         
     });
