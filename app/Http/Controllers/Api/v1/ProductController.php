@@ -18,13 +18,12 @@ class ProductController extends Controller
         $this->product = $product;
     }
     
-    public function index()
+    public function index(Request $request)
     {
-        //Get all products in table
-        $products = $this->product->paginate($this->totalPage);
-        
-        //Returning all datas you required in one JSON
-        return response()->json(['data' => $products]);
+        //$products = $this->product->getResults($request->all(), $this->totalPage);
+          $products = $this->product->all();
+
+        return response()->json([$products,'status' => true], 200);
     }
 
     /**
@@ -47,21 +46,23 @@ class ProductController extends Controller
     {
         //Get all datas coming from Request
         $data = $request->all();
+        $status = false;
         
         //Validates a data come of table products
         $validate = validator($data, $this->product->rules());
         if( $validate->fails() ){
             $messages = $validate->messages();
-            return response()->json(['validate.error', $messages], 422);
-            
+            return response()->json(['validate.error', $messages, 'status' => $status], 422);
         }
         
         //Verify if datas already exists in table products
         if( !$insert =  $this->product->create($data))
-            return response()->json(['error' => 'error_insert'], 500);
-            
+            return response()->json(['error' => 'error_insert', 'status' => $status], 500);
+         
+
+        $status = true;    
         //Returning true or false from insert    
-        return response()->json(['data' => $insert], 201);
+        return response()->json(['data' => $insert, 'status' => $status], 201);
     }
 
     /**

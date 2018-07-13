@@ -23,7 +23,7 @@ class Kernel extends HttpKernel
         /**
          * CORS (Adds CORS Send CORS headers in a Laravel application)
          */
-        \Spatie\Cors\Cors::class
+        
     ];
 
     /**
@@ -41,15 +41,12 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             
-            
-            //Middleware Authentication API            
-            'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
-            
         ],
 
         'api' => [
             'throttle:60,1',
             'bindings',
+            \Spatie\Cors\Cors::class,
         ],
     ];
 
@@ -69,5 +66,10 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+
+          
+        //Middleware Authentication API            
+        'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+        'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
     ];
 }

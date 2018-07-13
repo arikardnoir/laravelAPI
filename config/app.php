@@ -148,12 +148,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         
         
-        
-        /**
-         * 
-         * Providers JWT Auth - API Authentication
-         */
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -169,6 +163,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /**
+         * 
+         * Providers JWT Auth - API Authentication
+         */
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
         
     ],
@@ -226,7 +226,7 @@ return [
          * 
          */
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        //'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 
