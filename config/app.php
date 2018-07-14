@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://apitec.herokuapp.com'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => base64('xBUbAJkB4sOu9HK7r4A0JCTU9/6dNCeu5SD+Pi/zit4='),
+    'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
