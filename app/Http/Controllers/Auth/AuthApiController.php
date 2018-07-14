@@ -40,7 +40,7 @@ class AuthApiController extends Controller
         $status = true;
 
         // all good so return the token
-        return response()->json(compact('token', 'user', 'status'));
+        return response()->json(['token' => $token, 'user' => $user, 'status' => true]);
     }
 
 
